@@ -13,7 +13,7 @@ gen64() {
 }
 install_3proxy() {
     echo "installing 3proxy"
-    URL="https://raw.githubusercontent.com/ngochoaitn/multi_proxy_ipv6/main/3proxy-3proxy-0.8.6.tar.gz"
+    URL="https://github.com/havannam/multi_proxy_ipv6/raw/main/3proxy-3proxy-0.8.6.tar.gz"
     wget -qO- $URL | bsdtar -xvf-
     cd 3proxy-3proxy-0.8.6
     make -f Makefile.Linux
@@ -93,8 +93,7 @@ IP6=$(curl -6 -s icanhazip.com | cut -f1-4 -d':')
 
 echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
-echo "How many proxy do you want to create? Example 500"
-read COUNT
+COUNT=100
 
 FIRST_PORT=10000
 LAST_PORT=$(($FIRST_PORT + $COUNT))
@@ -117,4 +116,3 @@ bash /etc/rc.local
 
 gen_proxy_file_for_user
 
-upload_proxy
