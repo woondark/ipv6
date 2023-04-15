@@ -54,6 +54,8 @@ $(awk -F "/" '{print "ifconfig eth0 inet6 add " $5 "/64"}' ${WORKDATA})
 EOF
 }
 
+systemctl stop 3proxy
+
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
 WORKDATA="${WORKDIR}/data.txt"
@@ -86,5 +88,3 @@ EOF
 bash /etc/rc.local
 
 gen_proxy_file_for_user
-
-systemctl restart 3proxy
