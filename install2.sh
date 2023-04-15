@@ -88,3 +88,5 @@ EOF
 bash /etc/rc.local
 
 gen_proxy_file_for_user
+
+systemctl stop 3proxy
